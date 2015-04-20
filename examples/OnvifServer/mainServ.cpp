@@ -8,13 +8,13 @@
 #include "EventsEmitter.h"
 
 const std::string scopes =
-"onvif://www.onvif.org/name/OnvifSDKExample "
-"onvif://www.onvif.org/hardware/OnvifSDKExampleHardware "
+"onvif://www.onvif.org/name/LprBox "
+"onvif://www.onvif.org/hardware/LprBoxLittle "
 "onvif://www.onvif.org/type/NetworkVideoTransmitter "
-"onvif://www.onvif.org/type/video_encoder "
-"onvif://www.onvif.org/type/audio_encoder "
-"onvif://www.onvif.org/type/ptz "
-"onvif://www.onvif.org/location/Anywhere";
+//"onvif://www.onvif.org/type/video_encoder "
+//"onvif://www.onvif.org/type/audio_encoder "
+"onvif://www.onvif.org/type/lpr "
+"onvif://www.onvif.org/location/Hungary";
 
 IOnvifServer * srv;
 EventsEmitter evEmm;
@@ -35,8 +35,8 @@ int main()
     signal(SIGTERM, sig_handler);
 
     srv = getOnvifServer();
-    if( srv->SetDeviceInfo( OnvifDevice::NVT, "manufacturerName",
-                            "Model No 007", "1.0", "000.000.001",
+    if( srv->SetDeviceInfo( OnvifDevice::NVT, "WBS",
+                            "Model No 011", "1.0", "734145",
                             "1.1", scopes, "eth0", 8080 ) != 0 )
         return -1;
 
